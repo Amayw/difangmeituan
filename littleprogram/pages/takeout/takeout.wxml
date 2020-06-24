@@ -1,0 +1,53 @@
+<view class="container">
+   <view class="header">
+		<view class="search" >
+			<image class="icon" src="../../img/icon_search.png"/>
+			<input bindinput="inputSearch" placeholder="请输入捎带地址或价格"/>
+		</view>
+		<button class="{{searchWords.length?'blue':'disabled'}}" size="mini" hover-class="hover" loading="" plain="" disabled="{{!searchWords.length}}"
+				bindtap="doSearch">搜索
+		</button>
+	</view>
+  <scroll-view>
+   <view  class="item" wx:for="{{users}}" wx:key="id" scroll-y>
+      <image src="{{item.user_icon}}"></image>
+      <view class="right"  bindtap="submit" data-index="{{item.user_id}}">
+         <view class="rightcontent">
+            <view class="item1 itemname">{{item.user_name}}</view>
+            <view class="item1 itemaddress">取餐地址
+               <text class="addresscontent">{{item.canteen_name}}{{
+        item.counter_num}}</text>
+            </view>
+            <view class="item1 itemaddress">捎带地址
+               <text class="addresscontent">{{item.user_address}}</text>
+            </view>
+            <view class="item1 itemtime">捎带时间
+               <text class="timecontent">{{item.user_time}}</text>
+            </view>
+            <view class="item1 itemtime">捎带金额
+               <text class="timecontent">{{item.user_pay}}</text>
+            </view>
+         </view>
+      </view>
+      <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+            <scroll-view class="modalDlg" wx:if="{{showModal}}" scroll-y>
+               <view class="itempay">捎带地点
+                  <text class="itempayli">{{selected_shaodai.user_address}}</text>
+               </view>
+               <view class="itempay">捎带时间
+                  <text class="itempayli">{{selected_shaodai.user_time}}</text>
+               </view>
+               <view class="itempay">捎带金额
+                  <text class="itempayli">{{selected_shaodai.user_pay}}</text>
+               </view>
+               <view class="itemmore">捎带备注
+                  <text class="itemmoreli">{{selected_shaodai.user_more}}</text>
+               </view>
+               <view class="btns">
+                  <button bindtap="goshaodai" data-index="{{selected_shaodai.order_id}}">接单</button>
+                  <button bindtap="go">关闭</button>
+              </view>
+         </scroll-view>
+   </view>
+  </scroll-view>
+</view>

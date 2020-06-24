@@ -1,0 +1,32 @@
+<view class="container">
+  捎带列表
+  <scroll-view>
+   <view  class="item" wx:for="{{users}}" scroll-y>
+      <image src="{{item.user_icon}}"></image>
+      <view class="right">
+         <view class="rightcontent" bindtap="submit">
+            <view class="item1 itemname">{{item.user_name}}</view>
+            <view class="item1 itemaddress">地址
+               <text class="addresscontent">{{item.user_address}}</text>
+            </view>
+            <view class="item1 itemtime">时间
+               <text class="timecontent">{{item.user_time}}</text>
+            </view>
+         </view>
+      </view>
+      <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+            <view class="modalDlg" wx:if="{{showModal}}">
+               <view class="itempay">捎带金额
+                  <text class="itempayli">{{item.user_pay}}</text>
+               </view>
+               <view class="itemmore">捎带备注
+                  <text class="itemmoreli">{{item.user_more}}</text>
+               </view>
+               <view class="btns">
+                  <button >接单</button>
+                  <button bindtap="go">关闭</button>
+              </view>
+         </view>
+   </view>
+  </scroll-view>
+</view>

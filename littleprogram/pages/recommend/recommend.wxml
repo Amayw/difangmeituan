@@ -1,0 +1,90 @@
+<!--pages/recommend/recommend.wxml-->
+  <view class="header search" bindtap="tapSearch">
+			<image class="icon" src="/img/icon_search.png"/>
+			<i class="fa fa-home"></i>
+			搜索
+  </view>
+<view class="btns">
+  <button class="{{selected_place[0]?'btnActive':''}}" bindtap="changeColor" data-btnid="0">云天苑餐厅</button>
+  <button class="{{selected_place[1]?'btnActive':''}}" bindtap="changeColor" data-btnid="1">星天苑南餐厅</button>
+  <button class="{{selected_place[2]?'btnActive':''}}" bindtap="changeColor" data-btnid="2">星天苑北餐厅</button>
+</view>
+<view class="root">
+   <view class="tab">
+    <view data-id="1" class="item " bindtap="changeFilterId">
+      <image  bindtap="recommend1" src="../../img/reco/1.png"></image>
+      <text class="{{filter_id==1?'active':''}}">热门推荐</text>
+    </view>
+    <view data-id="2" class="item " bindtap="changeFilterId">
+    <image bindtap="recommend2" src="../../img/reco/2.png"></image>
+      <text class="{{filter_id==2?'active':''}}" >营养推荐</text>
+    </view>
+    <view data-id="3" class="item " bindtap="changeFilterId">
+    <image bindtap="recommend3" src="../../img/reco/3.png"></image>
+      <text class="{{filter_id==3?'active':''}}" >新菜推荐</text>
+    </view>
+    <view data-id="4" class="item" bindtap="changeFilterId">
+    <image bindtap="recommend4" src="../../img/reco/8.png"></image>
+      <text class="{{filter_id==4?'active':''}}" >好菜推荐</text>
+    </view>
+   </view>
+   <!-- 推荐展示 -->
+   <scroll-view class="content" scroll-y>
+      <!-- 窗口 -->
+      <view wx:if="{{filter_id < 3}}">
+      <view class="hotitem" wx:for="{{counterlist}}" wx:key="id">
+        <navigator url="../shop/shop?counter_id={{item.counter_id}}&filter_id={{filter_id}}" open-type="navigate">
+        <view class="hotitemliimg">
+           <!-- <image src="../../img/1.jpg"></image> -->
+           <image src="{{item.counter_icon}}"></image>
+        </view>
+        <view class="hotitemli hotitemlitext hotitemlitextsp">
+           <text class="hotitemliname">{{item.counter_name}}</text>
+           <!-- <text class="hotitemliprice">¥{{item.product_price}}</text> -->
+           <text class="hotitemliprice">{{item.canteen_name}}{{item.counter_num}}</text>
+           <view  wx:if="{{item.canteen_id==1}}">
+              <text class="hotitemliprice">云餐{{item.counter_id}}号</text>
+           </view>
+           <view  wx:if="{{item.canteen_id==2}}">
+              <text class="hotitemliprice">南餐{{item.counter_id}}号</text>
+           </view>
+           <view  wx:elif="{{item.canteen_id==3}}">
+              <text class="hotitemliprice">北餐{{item.counter_id}}号</text>
+           </view>
+           <!-- <text class="hotitemliprice" wx:else>南餐{{item.counter_id}}号窗口</text> -->
+           <!-- <text class="hotitemliprice" wx:if="{{item.canteen_id==1}}">云餐{{item.counter_id}}号窗口</text> -->
+           <!-- <text class="hotitemlidetail">月售{{item.counter_sales}}</text> -->
+           <text class="hotitemlidetail">{{item.counter_desc}}</text>
+           
+        </view>
+        </navigator>
+      </view>
+      </view>
+      <!-- 菜品 -->
+      <view wx:else >
+      <view  class="hotitem" wx:for="{{productlist}}" wx:key="id">
+        <navigator url="../shop/shop?product_id={{item.product_id}}&filter_id={{filter_id}}&product={{product}}" open-type="navigate">
+        <view class="hotitemliimg">
+           <image src="{{item.product_icon}}"></image>
+           <!-- <image src="../../img/0.jpg"></image> -->
+        </view>
+        <view class="hotitemlitext">
+           <text class="hotitemliname">{{item.product_name}}</text>
+           <text class="hotitemliprice">¥{{item.product_price}}</text>
+           <view  wx:if="{{item.canteen_id==1}}">
+              <text class="hotitemlidetail">云餐{{item.counter_id}}号</text>
+           </view>
+           <view  wx:if="{{item.canteen_id==2}}">
+              <text class="hotitemlidetail">南餐{{item.counter_id}}号</text>
+           </view>
+           <view  wx:elif="{{item.canteen_id==3}}">
+              <text class="hotitemlidetail">北餐{{item.counter_id}}号</text>
+           </view>
+           <text class="hotitemlidetail">月售{{item.product_sales}}</text>
+           <text class="hotitemlidetail">{{item.product_desc}}</text>
+        </view>
+        </navigator>
+      </view>
+      </view>
+   </scroll-view>
+</view>

@@ -1,0 +1,171 @@
+.header {
+	display: -webkit-flex;
+	padding: 20rpx;
+	background: #fff;
+}
+
+.header .icon {
+	width: 40rpx;
+	height: 40rpx;
+	vertical-align: top;
+}
+
+.header .search {
+	-webkit-flex: 1;
+	color: #000;
+	font-size: 30rpx;
+	line-height: 40rpx;
+	padding: 10rpx;
+	border-radius: 10rpx;
+	background: #eee;
+}
+
+.header .search .icon {
+	float: left;
+	margin: 1rpx 5rpx 0 0;
+}
+
+.header button {
+	margin-left: 20rpx;
+	font-size: 30rpx;
+  background-color: #ccc;
+}
+.blue{
+  background: linear-gradient(to right,#1d73e2,rgb(62, 103, 165));
+  color:#fff;
+}
+
+.header input {
+	height: 30rpx;
+	min-height: 40rpx;
+}
+
+/* .result {
+	padding: 0;
+} */
+
+/* .result .filters {
+	z-index: 1;
+	position: relative;
+	display: -webkit-flex;
+	border-top: 1rpx solid #efefef;
+	border-bottom: 1rpx solid #efefef;
+	background: #fff;
+}
+
+.result .filters .filter {
+	-webkit-flex: 1;
+	text-align: center;
+	color: #696969;
+	font-size: 30rpx;
+	line-height: 3;
+}
+
+.result .filters .filter .v {
+	display: none;
+}
+
+.result .filters .filter.active {
+	color: #000;
+	font-weight: bold;
+}
+
+.result .filters .filter.active .v {
+	display: inline-block;
+} */
+
+/* .result scroll-view {
+	position: absolute;
+	top: 200rpx;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+}
+
+.result .shop {
+	padding: 10rpx 0;
+	border-bottom: 1rpx solid #efefef;
+}
+
+.result .shop image {
+	width: 100%;
+	height: 266rpx;
+} */
+
+.loading {
+	font-size: 32rpx;
+	text-align: center;
+	line-height: 2;
+	margin-bottom: 20rpx;
+}
+
+.content{
+  width:96%;
+  height: 100%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  margin:10px auto;
+  overflow: hidden;
+  margin-bottom:85px;
+  border-radius: 10px;
+}
+.hotitem{
+  height:120px;
+  /* display: flex;
+  flex:1; */
+  padding:0 10px;
+  padding-right:40px;
+  background-color: #fff;
+}
+.hotitemliimg{
+  float:left;
+  width:40%;
+  /* width: 110px; */
+  height:100px;
+  left:5px;
+  padding-top:10px;
+  overflow:hidden;
+}
+.hotitemliimg image{
+  width: 230rpx;
+  height:100px;
+  border-radius: 10px
+}
+.content .hotitemlitext{
+  float:right;
+  height:110px;
+  width:55%;
+  /* display:inline-block; */
+  overflow:hidden;
+  margin:10px 0 0 5px;
+}
+.hotitemlitext .hotitemliname,.hotitemliprice,.hotitemlidetail{
+  display:block;
+  line-height: 25px;
+  margin:3px;
+
+}
+.hotitemlitext .hotitemliname{
+  font-size:20px;
+}
+.hotitemlitext .hotitemliprice{
+  color: #f45044;
+	font-size: 28rpx;
+	line-height: 33rpx;
+}
+.hotitemlitext .hotitemlidetail{
+  /* font-size:13px; */
+  /* line-height: 16px; */
+  color: #6d6a6a;
+	font-size: 23rpx;
+	line-height: 30rpx;
+  /* width: 400rpx; */
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 2;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+
+}

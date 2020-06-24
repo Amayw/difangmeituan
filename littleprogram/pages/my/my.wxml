@@ -1,0 +1,36 @@
+<!-- 
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<!-- <view class="tab">
+  <view class="tab-title">
+      <view class="{{selected1?'active':'default'}}" bindtap="selected1">自取</view>
+      <view class="{{selected2?'active':'default'}}" bindtap="selected2">捎带</view>
+  </view>
+  <view class="tab-content">
+      <view class="{{selected1?'show':'hidden'}}">内容1</view>
+      <view class="{{selected2?'show':'hidden'}}">内容2</view>
+  </view>
+</view> -->
+<view class="container">
+	<view class="header">
+		<image class="avatar" src="{{userInfo.avatarUrl}}" ></image>
+		<view class="nickname">{{userInfo.nickName}}</view>
+	</view>
+	<view class="section">
+		<view class="line judgement" bindtap="tomyorder">我的订单</view>
+		<!-- <view class="line judgement">我的好友</view> -->
+		<view class="line judgement" bindtap="tomyshaodai">我的捎带</view>
+		<!-- <view class="line judgement" bindtap="tomyaddress">我的地址</view> -->
+	</view>
+</view>
+

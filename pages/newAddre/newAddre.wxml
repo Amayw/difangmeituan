@@ -1,0 +1,33 @@
+<!-- 信息部分开始 -->
+<form bindsubmit="formSubmit">
+<view class = "info">
+<!-- 姓名部分 -->
+<view class = "item">
+<text>联系人</text>
+<view class = "right">
+<input type="text" name = "name"placeholder="{{name}}" focus="{{focus}}" bindinput="changename"/>
+</view>
+</view>
+
+<!-- 电话部分 -->
+<view class = "item">
+<text>联系电话</text>
+<view class = "right">
+<input name="tel" type="number" placeholder="{{tel}}"  focus="{{focus}}" bindinput="changetel"/>
+</view>
+</view>
+
+
+<!-- 详细地址部分 -->
+<view class = "item">
+<text>捎带地址</text>
+<view class = "right">
+<input name="door" type="text" placeholder="{{door}}"  focus="{{focus}}" bindinput="changedoor"/>
+</view>
+</view>
+
+
+</view>
+<!-- 信息部分结束 -->
+<button class = "save" formType="submit" >保存</button>
+</form>

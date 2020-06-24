@@ -1,0 +1,69 @@
+<view class="tab">
+  <view class="tab-title">
+      <view  bindtap="selected1"><text class="{{selected1?'active':'default'}}">进行中</text></view>
+      <view  bindtap="selected2"><text class="{{selected2?'active':'default'}}">已完成</text></view>
+  </view>
+  <view class="tab-content">
+      <view class="{{selected1?'show':'hidden'}}">
+         <scroll-view scroll-y>
+            <view class="orderitem" wx:for="{{orderlist}}" wx:key="id">
+               <view class="orderitemtitle"  bindtap="toshop" data-index="{{item.counter_id}}">
+                  <view class="orderitemtitleli">
+                     <image src="{{item.counter_icon}}"></image>
+                  </view>
+                  <view class="orderitemtitleli">
+                     <text>{{item.counter_name}}({{item.canteen_name}}{{item.counter_num}})</text>
+                  </view>
+                  <view class="orderitemtitleli">
+                     <text class="jiantou">></text>
+                  </view>
+               </view>
+               <view class="orderitemcontent">
+                  <view class="orderitemcontentli" wx:for="{{item.order_detail}}" wx:for-item="itemli" wx:key="id">
+                     <view>{{itemli.product_name}}</view>
+                     <view class="right"><text>x{{itemli.product_quantity}}</text></view>
+                  </view>
+               </view>
+               <view class="orderitembottom">
+                 <view class="orderitembottomli">{{item.order_amount}}</view>
+                 <view class="orderitembottomli">{{item.timelist2[timeindex2]}}</view>
+                 <view class="orderitembottomli">捎带金额{{item.piggyback_tip}}</view>
+                 <view class="orderitembottomli">捎带地址{{item.address.address_name}}</view>
+                 <view class="orderitembottomli">联系人{{item.address.user_name}}</view>
+                 <view class="orderitembottomli">捎带电话{{item.address.user_phone}}</view>
+               </view>
+            </view>
+         </scroll-view>
+      </view>
+      <view class="{{selected2?'show':'hidden'}}">
+         <scroll-view scroll-y>
+            <view class="orderitem" wx:for="{{orderlist}}" wx:key="id">
+               <view class="orderitemtitle"  bindtap="toshop" data-index="{{item.counter_id}}">
+                  <view class="orderitemtitleli">
+                     <image src="{{item.counter_icon}}"></image>
+                  </view>
+                  <view class="orderitemtitleli">
+                     <text>{{item.counter_name}}({{item.canteen_name}}{{item.counter_num}})</text>
+                  </view>
+                  <view class="orderitemtitleli">
+                     <text class="jiantou">></text>
+                  </view>
+               </view>
+               <view class="orderitemcontent">
+                  <view class="orderitemcontentli" wx:for="{{item.order_detail}}" wx:for-item="itemli" wx:key="id">
+                     <view>{{itemli.product_name}}</view>
+                     <view class="right"><text>x{{itemli.product_quantity}}</text></view>
+                  </view>
+               </view>
+               <view class="orderitembottom">
+                 <view class="orderitembottomli">共计{{item.order_amount}}元</view>
+                 <view class="orderitembottomli">共计{{item.timeindex2}}元</view>
+                 <view class="orderitembottomli">共计{{item.order_amount}}元</view>
+                 <view class="orderitembottomli">共计{{item.order_amount}}元</view>
+               </view>
+            </view>
+         </scroll-view>
+      </view>
+  </view>
+</view>
+  

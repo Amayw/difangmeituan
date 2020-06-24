@@ -1,0 +1,121 @@
+ <scroll-view>
+<view class="tab">
+  <view class="tab-title">
+      <view class="{{selected1?'active':'default'}}" bindtap="selected1">自取</view>
+      <view class="{{selected2?'active':'default'}}" bindtap="selected2">捎带</view>
+  </view>
+  <view class="tab-content">
+      <view class="{{selected1?'show':'hidden'}}">
+          <view class="itemcontent1">
+                <view><text>商家地址\n</text> </view>
+          </view>
+          <view class="itemli1">
+                <view>{{canteen_name}}{{counter_name}}</view>
+          </view>
+          <view class="itemcontent2">
+             <view class="itemli21">
+                  <view class="itemli211">取饭时间</view>
+                  <picker class="itemli212" name="addre"  value="{{timeindex1}}" range="{{timelist1}}" bindchange="changetimeindex1"> {{timelist1[timeindex1]}}</picker>
+              </view>
+              <view class="itemli22">
+                 <view class="itemli221">预留电话</view>
+                   <input class="itemli222" type='number'  name="user_phone" value="{{user_phone}}"  bindinput="changuserphone" bindblur="pnoneblur"></input>
+                   <!-- <image src="../../img/right.png"></image> -->
+              </view>
+          </view>
+          <view class="itemcontent5">
+             <view class="itemli51">订单备注</view> 
+             <input class="itemli52 itemli56" value="{{user_remark}}" bindinput="changeuserremark"></input>
+          </view>
+         
+          <view class="itemcontentagree">
+             <checkbox>同意<text>《到店自取用户协议》</text></checkbox>
+          </view>
+      </view>
+
+      <view class="{{selected2?'show':'hidden'}}">
+       <view class="itemcontent3" >
+            <view  wx:for="{{addresslist}}" wx:key="id"> 
+            <view wx:if="{{item.address_show}}"  bindtap="changeaddress">
+               <view class="itemli31">{{item.address_name}}</view>
+               <view> <text class="itemli32">{{item.user_name}}</text> <text class="itemli33">{{item.user_phone}}</text></view>
+            </view>
+            </view>
+        </view> 
+         <view class="itemcontent4">
+            <view class="itemli41">指定时间</view> 
+              <view class="itemli42">
+                <picker name="addre" class = "addre" value="{{timeindex2}}" range="{{timelist2}}" bindchange="changetimeindex2"> {{timelist2[timeindex2]}}</picker>
+              </view>
+          </view>
+          <view class="itemcontent5">
+             <view class="itemli51">捎带金额</view> 
+             <input type='number' class="itemli52" value="{{piggyback_tip}}" bindinput="changepiggybacktip"></input>
+          </view>
+          <view class="itemcontent5">
+             <view class="itemli51">订单备注</view> 
+             <input class="itemli52 itemli56" value="{{user_remark}}" bindinput="changeuserremark"></input>
+          </view>
+          <!-- <view class="icon">></view> -->
+      </view>
+  </view>
+</view>
+<view class="content">
+   <scroll-view class="goods-container" scroll-y="true">
+   <view class="myorder">我的订单</view>
+				<view class="goods" wx:for="{{cart.list}}" wx:key="product_id">
+					<!-- <image class="pic" src="../../img/0.jpg"></image> -->
+					<image class="pic" src="{{item.product_icon}}"></image>
+					<view class="name">{{item.product_name}}</view>
+					<view class="price">￥{{item.product_price}}</view>
+					<view class="addCart" bindtap="tapAddCart" data-id="{{item}}">
+						{{item.product_quantity}}份
+					</view>
+				</view>
+  </scroll-view>
+</view>
+</scroll-view>
+<!--index.wxml-->
+<view class="logocontain">
+  <view class='contain'>
+     <view class="logo">
+       ¥{{cart.total}} 
+     </view>
+     <view class="logo_ground" bindtap="pay">去支付</view>
+  </view>
+</view>
+
+<!--屏幕背景变暗的背景  -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+
+  <!--弹出框  -->
+  <scroll-view scroll-y animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">     
+       
+       <view class="myaddresstitle">
+       <view class="hide" bindtap="hideModal">取消</view>
+       我的地址
+       </view>
+       <radio-group >
+       <view class="itemaddress" wx:for="{{addresslist}}" wx:key="id">
+       <radio catchtap="changeradio" checked="{{item.address_show}}" class="itemaddressli"  data-address_id="{{item.address_id}}" color="#4993F7"></radio>
+       <view  class="itemaddressli itemaddresslis">
+          <view>{{item.address_name}}</view>
+          <view class="itemaddressliname">{{item.user_name}} {{item.user_phone}}</view>
+       </view>
+      <view class="itemaddressli">
+         <image  src="../../img/e1.png" bindtap="modifyAddress" data-modifyid="{{item.address_id}}"></image>
+      </view>
+       </view>
+    </radio-group>
+    <view class="itemaddressnew">
+       <view class="newAddre" bindtap="newAddress">
+       新增收货地址</view>
+    <view class="itemaddresszhanwei">
+    </view>
+    <view class="itemaddresszhanwei">
+    </view>
+    </view>
+   
+
+ </scroll-view>
+

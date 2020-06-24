@@ -1,0 +1,98 @@
+<view class="container">
+	<view class="header">
+		<view class="h1" wx:if="{{filter_id>2}}">
+      <image class="logo" src="{{product.product_icon}}"/>
+		  <view class="name">{{product.product_name}}</view>
+	  	<view class="price">¥{{product.product_price}}</view>
+	  	<view class="follow" bindtap="follow">
+          <image src="{{followed?'../../img/sc1.png':'../../img/sc2.png'}}">
+         </image>
+      </view>
+      <view class="detail">{{product.canteen_name}}{{product.counter_name}}</view>
+	  	<view class="desc">{{product.product_desc}}</view>
+      <view wx:if="{{product.category_type==1}}">
+          <view wx:for="{{cart.list}}" wx:for-item="cartlist" wx:key="id">
+             <view  wx:if="{{cartlist.product_id==product.product_id&&cartlist.product_quantity>0}}" class="reduceCart" data-id="{{product}}" bindtap="tapReduceCart">-</view>
+				     <view  wx:if="{{cartlist.product_id==product.product_id&&cartlist.product_quantity>0}}" class="numCart">{{cartlist.product_quantity}}</view>		     
+          </view>
+				  <view class="addCart" data-id="{{product}}" bindtap="tapAddCart">+</view>
+      </view>
+    </view>
+    <view wx:else>
+      <image class="logo" src="{{counter.counter_icon}}"/>
+		  <view class="name">{{counter.counter_name}}</view>
+		  <view class="price">{{counter.canteen_name}}{{counter.counter_num}}</view>
+		  <view class="follow" bindtap="follow">
+         <image src="{{followed?'../../img/sc1.png':'../../img/sc2.png'}}">
+         </image>
+      </view>
+		  <view class="desc">{{counter.counter_detail}}</view>
+    </view>
+	</view>
+  <!-- 菜品展示 -->
+	<view class="content-container">
+		<scroll-view scroll-y class="goods-container">
+				<view class="goods" wx:for="{{goods}}" wx:key="product_id">
+					<image class="pic" src="{{item.product_icon}}"></image>
+					<view class="name">{{item.product_name}}</view>
+					<view class="detail">月售{{item.product_sales}}</view>
+					<view class="price">￥{{item.product_price}}</view>
+          <view class="detail">{{item.canteen_name}}{{item.counter_name}}</view>
+          <view class="desc">{{item.product_desc}}</view>
+          <view wx:for="{{cart.list}}" wx:for-item="cartlist" wx:key="id">
+             <view  wx:if="{{cartlist.product_id==item.product_id&&cartlist.product_quantity>0}}" class="reduceCart" data-id="{{item}}" bindtap="tapReduceCart">-</view>
+				     <view  wx:if="{{cartlist.product_id==item.product_id&&cartlist.product_quantity>0}}" class="numCart">{{cartlist.product_quantity}}</view>
+				     
+          </view>
+          <view class="addCart" data-id="{{item}}" bindtap="tapAddCart">+</view>
+				</view>
+        <view class="zhanwei"></view>
+        <!-- 相关推荐 -->
+        <view wx:if="{{product. category_type==1}}">
+          <view class="relatedtitle ">
+          <text>相关推荐</text>
+        </view>
+        <view class="goods relatedrecommend" wx:for="{{relatedList}}" wx:key="product_id">
+					<image class="pic" src="{{item.product_icon}}"></image>
+					<view class="name">{{item.product_name}}</view>
+					<view class="price">￥{{item.product_price}}   <text>月售{{item.product_sales}}</text></view>
+          <view class="detail">{{item.canteen_name}}{{item.counter_name}}</view>
+          <view class="desc">{{item.product_desc}}</view>
+					<view wx:for="{{cart.list}}" wx:for-item="cartlist" wx:key="id">
+             <view  wx:if="{{cartlist.product_id==item.product_id&&cartlist.product_quantity>0}}" class="reduceCart" data-id="{{item}}" bindtap="tapReduceCart">-</view>
+				     <view  wx:if="{{cartlist.product_id==item.product_id&&cartlist.product_quantity>0}}" class="numCart">{{cartlist.product_quantity}}</view>
+          </view>
+          <view class="addCart" data-id="{{item}}" bindtap="tapAddCart">+</view>
+				</view>
+        <view class="zhanwei"></view>
+        </view>
+		</scroll-view>
+	</view>
+  <!-- 购物车细节 -->
+	<view class="cart-detail" hidden="{{!showCartDetail||!cart.count}}">
+		<view class="mask" bindtap="hideCartDetail"></view>
+		<view class="list">
+      <view class="item" wx:for="{{cart.list}}" wx:for-item="cartitem" wx:key="product_id">
+           <view class="name">{{cartitem.product_name}}</view>
+			     <view class="total">￥{{cartitem.product_price*cartitem.product_quantity}}</view>
+				   <view class="reduce" data-id="{{cartitem}}" bindtap="tapReduceCart">-</view>
+				   <view class="num">{{cartitem.product_quantity}}</view>
+				   <view class="add" data-id="{{cartitem}}" bindtap="tapAddCart">+</view>
+           </view>
+		</view>
+	</view>
+	<view class="con">
+      <view class="cart">
+		<view class="data" bindtap="showCartDetail">
+			<view class="icon">
+				<image src="../../img/cart.png"></image>
+				<view wx:if="{{cart.count>0}}" class="count">{{cart.count}}</view>
+			</view>
+			<view wx:if="{{cart.total>0}}" class="total">￥{{cart.total}}</view>
+		</view>
+		<form  report-submit="true">
+			<view class="btn {{cart.count?'blue':''}}"  disabled="{{!cart.count}}" bindtap="goOrder">结算</view>
+		</form>
+	</view>
+  </view>
+</view>

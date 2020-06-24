@@ -1,0 +1,185 @@
+/* pages/recommend/recommend.wxss */
+page {
+    background-color: #F5F5F5;
+    height:100%;
+    width: 100%;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+
+/* 搜索框 */
+.search{ 
+  height:35px;
+  background-color:rgb(226, 226, 226);
+  margin: 10px;
+  border-radius: 8px;
+  padding-left: 10px;
+  color:#6d6a6a;
+  /* line-height: 20px; */
+}
+.search image{
+  width: 25px;
+  height:28px;
+  margin-top:3.5px;
+  /* vertical-align:middle;
+  text-align: center; */
+}
+i{
+  line-height: 35px;
+  
+}
+
+.icon {
+	width: 40px;
+	height: 40px;
+	vertical-align: top;
+}
+
+
+/* 餐厅选择  */
+.btns {
+  display: flex;
+  width: 100%;
+  margin:5px auto;
+  
+}
+
+.btns button{
+  width:95px;
+  height:30px;
+  font-size:13px;
+  font-weight: 460;
+  line-height: 30px;
+  border-radius: 5px;
+  border:0.5px solid #eff;
+  background-color: rgb(233, 231, 231);
+  color:#585858;
+}
+ 
+.btns .btnActive{
+  background: rgb(167, 192, 230);
+  color: rgb(41, 110, 214);
+}
+/* 菜品推荐 */
+.root{
+  width: 96%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  
+}
+.tab{
+  width: 100%;
+  height:70px;
+  display: flex;
+  /* background-color: #f0f0f0; */
+  border-radius: 5px;
+  text-align: center;
+  margin:0 auto;
+  margin-bottom:7px;
+}
+.tab .item{
+  display: flex;
+  flex-direction: column;
+  height:70px;
+  flex:1;
+  margin:0 auto;
+}
+.tab image{
+  flex:3;
+  width: 50px;
+  height: 50px;
+  margin:0 auto;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.tab text{
+  flex:1;
+  font-size: 14px;
+  color:#ACADAF;
+  font-weight: 500;
+  margin-top:5px;
+}
+
+.tab .item .active{
+  /* border-radius: 5px; */
+  border-bottom:none;
+  color: #3967AA;
+  /* color: #fff; */
+}
+.content{
+  width:96%;
+  height: 100%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  margin:10px auto;
+  overflow: hidden;
+  margin-bottom:85px;
+  border-radius: 10px;
+}
+.hotitem{
+  height:120px;
+  /* display: flex;
+  flex:1; */
+  padding:0 10px;
+  padding-right:40px;
+  background-color: #fff;
+}
+.hotitemliimg{
+  float:left;
+  width:40%;
+  /* width: 110px; */
+  height:100px;
+  left:5px;
+  padding-top:10px;
+  overflow:hidden;
+}
+.hotitemliimg image{
+  width: 230rpx;
+  height:100px;
+  border-radius: 10px
+}
+.content .hotitemlitext{
+  float:right;
+  height:110px;
+  width:55%;
+  /* display:inline-block; */
+  overflow:hidden;
+  margin:10px 0 0 5px;
+}
+.hotitemlitext .hotitemliname,.hotitemliprice,.hotitemlidetail{
+  display:block;
+  line-height: 25px;
+  margin:3px;
+
+}
+.hotitemlitext .hotitemliname{
+  font-size:20px;
+}
+.hotitemlitext .hotitemliprice{
+  color: #f45044;
+	font-size: 28rpx;
+	line-height: 33rpx;
+}
+.hotitemlitext .hotitemlidetail{
+  /* font-size:13px; */
+  /* line-height: 16px; */
+  color: #6d6a6a;
+	font-size: 23rpx;
+	line-height: 30rpx;
+  /* width: 400rpx; */
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 2;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+
+}
+
+

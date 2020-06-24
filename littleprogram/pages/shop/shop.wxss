@@ -1,0 +1,353 @@
+page {
+  width: 100%;
+	height: 100%;
+	overflow: hidden;
+  background-color:#F5F5F5;
+}
+.container {
+	overflow: hidden;
+  height: 100%;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+.header {
+  /* height:100px; */
+	position: relative;
+	padding: 20rpx 40rpx;
+	background-color: #F5F5F5;
+	-webkit-transition: all 0.6s ease-in-out;
+}
+.header .h1{
+  height: 85px;
+}
+
+.header.hidden {
+	/*-webkit-transform: translate3d(0,-290rpx,0);*/
+	margin-top: -290rpx;
+}
+.header .logo {
+	float: left;
+	width: 160rpx;
+	height: 160rpx;
+	border: 2rpx solid #fff;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+
+.header .name {
+	color: #000;
+	font-size: 38rpx;
+	line-height: 46rpx;
+}
+
+.header .price {
+	color: #f45044;
+	font-size: 36rpx;
+	line-height: 46rpx;
+}
+
+.header .follow {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 30rpx;
+	line-height: 2;
+	padding: 0 0.7em;
+	/* border: 1rpx solid; */
+	/* border-radius: 30rpx; */
+}
+.header .follow image{
+  width:50rpx;
+  height:50rpx;
+}
+.header .detail,.desc {
+	color: #6d6a6a;
+	font-size: 28rpx;
+	line-height: 36rpx;
+  margin-left:200rpx;
+}
+
+.header  .addCart,.reduceCart,.numCart {
+	position: absolute;
+	right: 30rpx;
+	bottom: 30rpx;
+	width: 50rpx;
+	height: 50rpx;
+	background: #4993F7;
+	border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  line-height: 50rpx;
+}
+.header  .reduceCart{
+	right: 120rpx;
+	background-color: #F5F5F5;
+	color:#4993F7;
+	border:1px solid #4993F7;
+	font-weight: 600;
+	font-size: 30rpx;
+}
+.header .numCart{
+  width: 30rpx;
+  color: #333;
+  right: 85rpx;
+  background-color: #F5F5F5;
+}
+
+.content-container {
+	/* display: -webkit-flex; */
+	height: 100%;
+	box-sizing: border-box;
+	/* padding-bottom: 100rpx; */
+  width:96%;
+  margin:10px auto;
+}
+
+.goods-container {
+	/* -webkit-flex: 1; */
+	background: #ffffff;
+	height: 80%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.goods-container .goods {
+	position: relative;
+  height: 200rpx;
+	padding: 10rpx 16rpx;
+	font-size: 36rpx;
+	line-height: 60rpx;
+	border-bottom: 1px solid #f7f7f7;
+}
+.itemhover{
+	opacity: 0.9;
+  background: #f7f7f7;
+}
+
+.goods-container .goods .pic {
+	float: left;
+	width: 180rpx;
+	height: 180rpx;
+	margin-right: 20rpx;
+  border-radius: 10px;
+}
+.goods-container .goods .name {
+	color: #000;
+	font-size: 36rpx;
+	line-height: 46rpx;
+}
+
+.goods-container .goods .detail,.desc {
+	color: #6d6a6a;
+	font-size: 26rpx;
+	line-height: 36rpx;
+  margin-left:200rpx;
+}
+.goods-container .goods .desc {
+  width:335rpx;
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 1;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+}
+.goods-container .goods .price {
+	color: #f45044;
+	font-size: 38rpx;
+}
+.goods-container .goods .price text{
+	color: #6d6a6a;
+	font-size: 27rpx;
+}
+
+.zhanwei1{
+  height:60rpx;
+}
+.zhanwei2{
+  height:120rpx;
+}
+
+.goods-container .goods .addCart,.reduceCart,.numCart {
+	position: absolute;
+	right: 20rpx;
+	bottom: 30rpx;
+	width: 50rpx;
+	height: 50rpx;
+	background: #4993F7;
+	border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+}
+.goods-container .goods .numCart{
+  width: 30rpx;
+  background-color: #fff;
+  color: #333;
+	right: 75rpx;
+
+}
+.goods-container .goods .reduceCart{
+	width: 45rpx;
+	height: 45rpx;
+	line-height: 45rpx;
+	right: 110rpx;
+	background-color: #fff;
+	color:#4993F7;
+	border:1px solid #4993F7;
+	font-weight: 600;
+	font-size: 30rpx;
+}
+
+.goods-container .relatedtitle text{
+	display: block;
+  /* margin: 5px 5px; */
+  font-size:45rpx;
+  margin-left:10px;
+	color:#333;
+	margin-bottom: 30rpx;
+}
+.cart-detail, .cart-detail .mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.cart-detail .mask {
+	background: rgba(0,0,0,0.7);
+}
+.cart-detail .list {
+	position: absolute;
+	left: 0;
+	bottom: 100rpx;
+	width: 100%;
+	background: #f7f7f7;
+	padding: 30rpx 0;
+}
+.cart-detail .list .item {
+	display: -webkit-flex;
+	color: #333;
+	font-size: 36rpx;
+	line-height: 50rpx;
+	padding: 20rpx 40rpx;
+}
+.cart-detail .list .item .name {
+	-webkit-flex: 1;
+}
+.cart-detail .list .item .total {
+	width: 120rpx;
+}
+.cart-detail .list .item .reduce,
+.cart-detail .list .item .add {
+	font-size: 50rpx;
+	background: #4993F7;
+	width: 50rpx;
+	height: 50rpx;
+  margin:auto 0;
+	text-align: center;
+	border-radius: 50%;
+  color:#fff;
+}
+.cart-detail .list .item .reduce{
+  width: 45rpx;
+	height: 45rpx;
+	line-height: 45rpx;
+	right: 110rpx;
+	background-color: #fff;
+	color:#4993F7;
+	border:1px solid #4993F7;
+	font-weight: 600;
+	font-size: 30rpx;
+}
+.cart-detail .list .item .num {
+	width: 50rpx;
+	text-align: center;
+	margin: 0 5rpx;
+}
+
+.cart {
+	display: -webkit-flex;
+	position: absolute;
+	left:5%;
+	bottom: 0px;
+	width: 90%;
+	height: 100rpx;
+	background: #fff;
+  background-color: rgba(0, 0, 0, 0.514);
+  border-radius:20px;
+
+}
+.cart .data {
+	-webkit-flex: 1;
+	/*border-top: 1rpx solid #e7e7e7;*/
+}
+.cart .data .icon {
+	position: absolute;
+	left: 60rpx;
+	top: -20rpx;
+	width: 100rpx;
+	height: 100rpx;
+	background: #4993F7;
+	border-radius: 50%;
+}
+.cart .data .icon image {
+	position: absolute;
+	left: 15rpx;
+	top: 15rpx;
+	width: 70rpx;
+	height: 70rpx;
+}
+.cart .data .icon .count {
+	position: absolute;
+	left: 70rpx;
+	top: -10rpx;
+	font-size: 30rpx;
+	line-height: 40rpx;
+	padding: 0 12rpx;
+	color: #fff;
+	background: #f45044;
+	border-radius: 20rpx;
+}
+.cart .data .total {
+	color: #f45044;
+	font-size: 50rpx;
+	line-height: 100rpx;
+	padding-left: 200rpx;
+}
+.cart .btn{
+
+	width: 170rpx;
+	height: 100rpx;
+	font-size: 36rpx;
+  /* border:1px solid #ccc; */
+  line-height: 100rpx;
+  background-color: #ccc;
+  text-align: center;
+  border-radius: 0 20px 20px 0;
+}
+.cart .blue{
+  background: linear-gradient(to right,#1d73e2,rgb(61, 109, 180));
+  color: #fff;
+}
+
+.listtitle{
+  display: flex;
+  margin-bottom:30rpx;
+  line-height: 50rpx;
+}
+.listtitle view{
+ flex:1;
+}
+.listtitle image{
+ width:35rpx;
+ height: 35rpx;
+}
+
+.listtitle .clear{
+  text-align: right;
+}

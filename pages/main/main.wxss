@@ -1,0 +1,34 @@
+/* pages/main/main.wxss */
+.location{
+  width: 750rpx;
+  height: 350px;
+}
+button{
+  width:90%;
+  background-color: #3967AA;
+  color: #fff;
+}
+.selects{
+  width: 80%;
+  height: 80%;
+  line-height: 50px;
+  margin:20px auto;
+  text-align: left;
+}
+
+.selecting {
+  width: 80%;
+  display:flex;
+}
+.selectitem1{
+  flex: 1;
+}
+radio-group{
+  flex:2;
+  display:flex;
+  margin-left:15px;
+}
+radio-group radio{
+  flex:1;
+}
+

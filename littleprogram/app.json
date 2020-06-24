@@ -1,0 +1,74 @@
+{
+  "pages": [
+    
+    "pages/recommend/recommend",
+    "pages/shop/shop",
+    "pages/order/order",
+    
+    "pages/myorder/myorder",
+    "pages/myshaodai/myshaodai",
+    
+    "pages/my/my",
+    "pages/takeout/takeout",
+    
+    
+    
+    "pages/login/login",
+    "pages/main/main",
+    "pages/modifyAddre/modifyAddre",
+    "pages/newAddre/newAddre",
+    "pages/recommend/search",
+    "pages/logs/index"
+    
+  ],
+  "window": {
+    "navigationBarTitleText": "西工大食堂",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#3967AA"
+  },
+  "tabBar": {
+    "color": "#444",
+    "selectedColor": "#3967AA",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "窗口推荐",
+        "iconPath": "img/b2.png",
+        "selectedIconPath": "img/b1.png"
+      },
+      {
+        "pagePath": "pages/takeout/takeout",
+        "text": "校园捎带",
+        "iconPath": "img/c2.png",
+        "selectedIconPath": "img/c1.png"
+      },
+      {
+        "pagePath": "pages/main/main",
+        "text": "就餐指南",
+        "iconPath": "img/a2.png",
+        "selectedIconPath": "img/a1.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "img/d2.png",
+        "selectedIconPath": "img/d1.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxe5f52902cf4de896"
+  ],
+  "sitemapLocation": "sitemap88.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

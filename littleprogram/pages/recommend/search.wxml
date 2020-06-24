@@ -1,0 +1,42 @@
+
+	<view class="header">
+		<view class="search" >
+			<image class="icon" src="../../img/icon_search.png"/>
+			<input bindinput="inputSearch" auto-focus/>
+		</view>
+		<button class="{{searchWords.length?'blue':'disabled'}}" size="mini" hover-class="hover" loading="" plain="" disabled="{{!searchWords.length}}"
+				bindtap="doSearch">搜索
+		</button>
+	</view>
+	<view id="result" class="result" hidden="{{!showResult}}">
+    <!-- 推荐展示 -->
+   <scroll-view class="content" scroll-y>
+      <!-- 菜品 -->
+      <view  class="hotitem" wx:for="{{ goodslist}}" wx:key="id">
+        <navigator url="../shop/shop?product_id={{item.product_id}}&filter_id=5" open-type="navigate">
+        <view class="hotitemliimg">
+           <image src="{{item.product_icon}}"></image>
+           <!-- <image src="../../img/2.jpg"></image> -->
+        </view>
+        <view class="hotitemlitext">
+           <text class="hotitemliname">{{item.product_name}}</text>
+           <text class="hotitemliprice">¥{{item.product_price}}</text>
+           <view  wx:if="{{item.canteen_id==1}}">
+              <text class="hotitemlidetail">云餐{{item.counter_id}}号</text>
+           </view>
+           <view  wx:if="{{item.canteen_id==2}}">
+              <text class="hotitemlidetail">南餐{{item.counter_id}}号</text>
+           </view>
+           <view  wx:elif="{{item.canteen_id==3}}">
+              <text class="hotitemlidetail">北餐{{item.counter_id}}号</text>
+           </view>
+           <!-- <text class="hotitemlidetail">{{item.canteen_name}}{{item.counter_name}}</text> -->
+           <text class="hotitemlidetail">月售{{item.product_sales}}</text>
+           <text class="hotitemlidetail">{{item.product_desc}}</text>
+        </view>
+        </navigator>
+      </view>
+      <view class="loading">努力加载中…</view>
+   </scroll-view>
+	</view>
+
